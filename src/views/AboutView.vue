@@ -45,7 +45,6 @@
     name: 'app',
     data () {
       return {
-        titulo: 'Welcome yo tour gowplay',
         registro: {
           departureStation: '',
           arrivalStation: ''
