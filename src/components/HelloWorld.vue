@@ -25,21 +25,15 @@
               <form class="example-form">
                 <div class="align-items-start">
                   <div class="text-center">
-                    <p>Enter the city of origin and the city of destination to calculate the route, then press Send.</p>
-                  </div>
-                  <div class="col">
-                    <div class="row">
-                      <input type="text" class="form-control" placeholder="Departure Station" aria-label="Username">
-                      <input type="text" class="form-control" placeholder="Arrival Station" aria-label="Server">
-                    </div>
+                    <p>Press enter to go to save flight paths.</p>
                   </div>
                   <div class="col align-self-center">
                       <button type="button" class="btn btn-success btn-sm">
                         <router-link style="text-decoration: none;" to="/about">
-                        Send
+                        Enter
                         </router-link>
                       </button>
-                    </div>
+                  </div>
                 </div>
               </form>
             </div>

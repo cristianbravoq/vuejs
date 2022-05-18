@@ -4,10 +4,10 @@
         <div class="section-content">
             <div class="text-center">
               <div class="btn-group my-4" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger"><router-link style="text-decoration: none; color: black;" to="/">Home</router-link></button>
-                <button type="button" class="btn btn-success"><router-link style="text-decoration: none; color: black;" to="/about">Find flight route</router-link></button>
+                <button type="button" class="btn btn-success"><router-link style="text-decoration: none; color: black;" to="/">Home</router-link></button>
               </div>
                     <div class="alert alert-success" role="alert">
+                      <p style="text-transform: uppercase;">Enter the city of origin and destination city to save the route</p>
                         <div class="form-group d-flex" style="border: 2px solid; padding: 2em">
                           <label for="" style="margin: 5px">Departure Station</label>
                           <input type="text" class="form-control" v-model="registro.departureStation"> 
@@ -30,9 +30,6 @@
                                   <td>{{registro.arrivalStation}}</td>
                                   <td><button @click="remove" class="btn btn-danger">Remove</button></td>
                                 </tr>
-                              </tbody>
-                              <tbody v-else>
-
                               </tbody>
                           </table>
                     </div>
