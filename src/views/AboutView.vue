@@ -42,6 +42,7 @@
 <script>
 
   export default {
+    titulo: '',
     name: 'app',
     data () {
       return {
