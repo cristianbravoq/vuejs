@@ -8,46 +8,31 @@
                 <button type="button" class="btn btn-success"><router-link style="text-decoration: none; color: black;" to="/about">Find flight route</router-link></button>
               </div>
                     <div class="alert alert-success" role="alert">
-                        <div class="row text-center">
-                            <p>Press Find flight route.</p>
+                        <div class="form-group d-flex" style="border: 2px solid; padding: 2em">
+                          <label for="" style="margin: 5px">Departure Station</label>
+                          <input type="text" class="form-control" v-model="registro.departureStation"> 
+                          <label for="" style="margin: 5px">Arrival Station</label>
+                          <input type="text" class="form-control" v-model="registro.arrivalStation">
+                          <button class="btn btn-success row" style="margin: 5px" @click="agregarRuta">SEND</button>
                         </div>
-                        <div class="alert alert-warning" role="alert">
-                            You have not yet performed a search
-                        </div>
+                        <hr>
                           <table class="table table-hover">
                               <thead>
                                 <tr>
                                   <th scope="col">Origin</th>
                                   <th scope="col">Destination</th>
-                                  <th scope="col">Price</th>
+                                  <th scope="col"></th>
                                 </tr>
                               </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">Departure Station</th>
-                                  <td>Arrival Station</td>
-                                  <td>USD Price first stopover</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Departure Station</th>
-                                  <td>Arrival Station</td>
-                                  <td>USD Price second stopover</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Departure Station</th>
-                                  <td>Arrival Station</td>
-                                  <td>USD Price third stopover</td>
+                              <tbody v-if="registros.length">
+                                <tr v-for="(registro, index) in registros">
+                                  <td>{{registro.departureStation}}</td>
+                                  <td>{{registro.arrivalStation}}</td>
+                                  <td><button @click="remove" class="btn btn-danger">Remove</button></td>
                                 </tr>
                               </tbody>
-                              <tbody>
-                                  <tr>
-                                    <td colspan="2">PRICE:
-                                      <button type="button" class="btn btn-success">USD</button>
-                                        <button type="button" class="btn btn-success">EUR</button>
-                                        <button type="button" class="btn btn-success">GBP</button>
-                                      </td>
-                                    <td>Coin</td>
-                                  </tr>
+                              <tbody v-else>
+
                               </tbody>
                           </table>
                     </div>
@@ -56,3 +41,34 @@
     </div>
   </div>
 </template>
+
+<script>
+
+  export default {
+    name: 'app',
+    data () {
+      return {
+        titulo: 'Welcome yo tour gowplay',
+        registro: {
+          departureStation: '',
+          arrivalStation: ''
+        },
+        registros : [ ]
+      }
+    },
+    methods: {
+      agregarRuta: function() {
+        const { departureStation, arrivalStation } = this.registro;
+        this.registros.push({
+          departureStation,
+          arrivalStation
+        })
+      },
+      remove: function(index) {
+        const { departureStation, arrivalStation } = this.registro;
+        this.registros.splice(index, 1);
+      }
+    }
+  }
+
+</script>
